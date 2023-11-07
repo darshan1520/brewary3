@@ -1,0 +1,45 @@
+<template>
+    <div class="slds-grid slds-gutters">
+    <div class="slds-col slds-size_2-of-3">
+        <lightning-input type="text"
+                                    
+                                    
+                                    placeholder="Search by city name"
+                                    onchange={handleCityName} ></lightning-input>
+        <lightning-input type="text"
+                                    
+                                    
+                                    placeholder="Search by Brewery name"
+                                    onchange={handleBrewName} ></lightning-input>
+                                </div>
+<div class="slds-col slds-size_1-of-3">
+<lightning-radio-group name="Brewery Type"
+                            label="Brewery Type"
+                            options={typeOptions}
+                            
+                            
+                            onchange={handleTypeChange}></lightning-radio-group>
+                        </div>
+
+                    </div>
+<br/>
+<div class="slds-align_absolute-center">
+<lightning-button variant="brand" label="Search Breweries" title="Primary action" onclick={handleSearch} ></lightning-button>
+</div>
+<br/>
+<div>
+<template if:true={boolVal}>
+<lightning-card title="Brewery Data" icon-name="utility:table">
+    <div style="height: 400px;">
+        <lightning-datatable
+                key-field="id"
+                data={data}
+                columns={columns}
+                >
+        </lightning-datatable>
+    
+    </div>
+</lightning-card>
+</template>
+</div>
+</template>
